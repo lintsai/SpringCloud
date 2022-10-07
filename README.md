@@ -1,5 +1,5 @@
 # SpringCloud
-Spring Cloud Learn Project
+Spring Cloud Sample Project
 
 ## AdminServer
 Spring Boot Admin Server Module
