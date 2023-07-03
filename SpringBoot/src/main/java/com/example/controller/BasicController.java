@@ -1,6 +1,7 @@
-package com.example.springboot;
+package com.example.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.example.service.BasicService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,13 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 public class BasicController {
-
-    @Value("${version}")
-    private String version;
-
+    @Autowired
+    BasicService basicService;
     @GetMapping("/version")
     public String version() {
-        return version;
+        return basicService.version();
     }
 
 }

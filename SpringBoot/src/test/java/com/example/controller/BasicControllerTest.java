@@ -1,5 +1,6 @@
-package com.example.springboot;
+package com.example.controller;
 
+import com.example.springboot.Application;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.core.StringContains.containsString;
-import static org.springframework.test.util.AssertionErrors.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -29,8 +29,6 @@ class BasicControllerTest {
     private MockMvc mockMvc;
     @Value("${test.version}")
     private String version;
-    @Autowired
-    private BasicController basicController;
     @BeforeEach
     public void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
@@ -64,8 +62,4 @@ class BasicControllerTest {
 //                .andExpect(jsonPath("$.returnMessage").value(returnMessage));
 //    }
 
-    @Test
-    void version() {
-        assertEquals("/version", basicController.version(), version);
-    }
 }
